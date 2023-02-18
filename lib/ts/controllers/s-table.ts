@@ -1,8 +1,12 @@
 import * as Stacks from "../stacks";
 
+const DIRECTIONS_TO_ARIA_SORT = {
+    asc: "ascending",
+    desc: "descending",
+};
+
 export class TableController extends Stacks.StacksController {
     static targets = ["column"];
-    readonly columnTarget!: Element;
     readonly columnTargets!: Element[];
 
     setCurrentSort(headElem: Element, direction: "asc" | "desc" | "none") {
@@ -33,8 +37,13 @@ export class TableController extends Stacks.StacksController {
 
             if (!isCurrrent || direction === "none") {
                 controller.removeElementData(target, "sort-direction");
+                target.removeAttribute("aria-sort");
             } else {
                 controller.setElementData(target, "sort-direction", direction);
+                target.setAttribute(
+                    "aria-sort",
+                    DIRECTIONS_TO_ARIA_SORT[direction]
+                );
             }
         });
     }

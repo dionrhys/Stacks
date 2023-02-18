@@ -635,14 +635,14 @@ description: Tables are used to list all information from a data set. The base s
 <section class="stacks-section">
     {% header "h2", "Sortable tables" %}
     <p class="stacks-copy">To indicate that the user can sort a table by different columns, add the <code class="stacks-code">s-table__sortable</code> class to the table.</p>
-    <p class="stacks-copy">The <code class="stacks-code">&lt;th&gt;</code> cells should include arrows to indicate sortability or the currently applied sorting. In addition, the column that is currently sorted should be indicated with the <code class="stacks-code">is-sorted</code> class on its <code class="stacks-code">&lt;th&gt;</code>.</p>
+    <p class="stacks-copy">The <code class="stacks-code">&lt;th&gt;</code> cells should include arrows to indicate sortability or the currently applied sorting. In addition, the column that is currently sorted should be indicated with the <code class="stacks-code">is-sorted</code> class and the <code class="stacks-code">aria-sort</code> attribute with the <a href="https://www.w3.org/TR/wai-aria-1.1/#aria-sort">appropriate value</a> on its <code class="stacks-code">&lt;th&gt;</code>.</p>
     <div class="stacks-preview">
 {% highlight html %}
 <div class="s-table-container">
     <table class="s-table s-table__sortable">
         <thead>
             <tr>
-                <th scope="col" class="is-sorted">Listing @Svg.ArrowDownSm</th>
+                <th scope="col" class="is-sorted" aria-sort="descending">Listing @Svg.ArrowDownSm</th>
                 <th scope="col">Status @Svg.ArrowUpDownSm</th>
                 <th scope="col">Owner @Svg.ArrowUpDownSm</th>
                 <th scope="col" class="ta-right">Views @Svg.ArrowUpDownSm</th>
@@ -660,7 +660,7 @@ description: Tables are used to list all information from a data set. The base s
                 <table class="s-table s-table__sortable">
                     <thead>
                         <tr>
-                            <th scope="col" class="is-sorted">
+                            <th scope="col" class="is-sorted" aria-sort="descending">
                                 Listing
                                 {% icon "ArrowDownSm" %}
                             </th>
